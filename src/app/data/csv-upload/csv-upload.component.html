@@ -1,0 +1,45 @@
+<div class="ui container">
+  <div class="ui segment">
+    <app-divider>Upload Csv File</app-divider>
+
+    <div class="csv-file-chooser-section">
+      <div class="ui big basic icon buttons">
+        <button class="ui button">
+          <label for="csvFileUpload">
+            <input
+              type="file"
+              #fileImportInput
+              name="File Upload"
+              id="csvFileUpload"
+              (change)="fileChangeListener($event)"
+              accept=".csv"
+            />
+            CSV<i class="upload icon"></i>
+          </label>
+        </button>
+      </div>
+    </div>
+
+    <br /><br />
+
+    <div>
+      <app-table [csvRecords]="csvRecords"></app-table>
+    </div>
+
+    <br /><br />
+    <app-divider>Statistical Tests</app-divider>
+
+    <app-stats [csvRecords]="csvRecords"></app-stats>
+
+    <div class="ui stacked segments" *ngIf="isStackedON">
+      <div class="ui segment">
+        <p>Top</p>
+      </div>
+      <div class="ui segment">
+        <p>Middle</p>
+      </div>
+    </div>
+
+    <app-divider></app-divider>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+.data {
+  padding: 10px;
+  height: 300px;
+  width: 1100px;
+  text-align: center;
+  overflow: auto;
+}
+
+.data th {
+  background-color: rgb(47, 49, 49);
+  height: 30px;
+  color: white;
+  border-radius: 10%;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+@media screen {
+}

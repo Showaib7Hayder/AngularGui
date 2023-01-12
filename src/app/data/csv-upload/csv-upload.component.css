@@ -1,0 +1,23 @@
+input {
+  display: none;
+}
+
+label {
+  cursor: pointer;
+}
+
+.csv-file-chooser-section {
+  text-align: center;
+}
+
+button:hover {
+  background-color: darkgoldenrod;
+}
+
+.ui container {
+  margin: 20px;
+}
+
+#val {
+  background-color: red;
+}
