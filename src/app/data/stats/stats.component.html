@@ -29,46 +29,43 @@
   </div>
 </div>
 
-<!-- <div (click)="pSelected = !pSelected" style="background-color: blueviolet">
-  click here
-</div> -->
-<!-- <div style="background-color: darkgoldenrod" *ngIf="!pSelected">Showed !</div> -->
-
-<!--
-<button class="ui positive basic button" (click)="pClicked()">Positive</button> -->
-
-<div class="ui vertical pointing menu" *ngIf="pSelected">
-  <div>
-    <a
-      class="item"
-      [class.active]="isActive"
-      (click)="checkActive()"
-      (click)="testClick()"
-    >
-      Anova
-    </a>
+<br /><br />
+<div class="ui compact menu" *ngIf="pSelected">
+  <div class="ui simple dropdown item">
+    Choose Test
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div
+        class="item"
+        *ngFor="let test of parametricTests; let i = index"
+        (click)="testClick(test)"
+      >
+        {{ test }}
+      </div>
+    </div>
   </div>
-  <div><a class="item" (click)="testClick()"> Manova </a></div>
-  <div><a class="item" (click)="testClick()"> T-test </a></div>
 </div>
 
-<div class="ui vertical pointing menu" *ngIf="npSelected">
-  <a
-    class="item"
-    [class.active]="isActive"
-    (click)="checkActive()"
-    (click)="testClick()"
-  >
-    Chi-Square
-  </a>
-  <a class="item" (click)="testClick()"> Friedman test </a>
-  <a class="item" (click)="testClick()"> Spearmans P </a>
-</div>
+<br /><br />
 
-<ng-container> </ng-container>
+<div class="ui compact menu" *ngIf="npSelected">
+  <div class="ui simple dropdown item">
+    Choose Test
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div
+        class="item"
+        *ngFor="let test of nonParametricTests; let i = index"
+        (click)="testClick(test)"
+      >
+        {{ test }}
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="ui very padded segment" *ngIf="testClicked">
-  <h3>Choose variables that you want to apply the {{ testName }} test on</h3>
+  <h3>Choose Variables for {{ testName }} Test</h3>
 
   <div class="ui compact menu">
     <div class="ui simple dropdown item">
@@ -78,7 +75,7 @@
         <div
           class="item"
           *ngFor="let col of csvRecords[0]; let i = index"
-          (click)="onClick(col)"
+          (click)="onVarClick(col)"
         >
           {{ col }}
         </div>
@@ -106,7 +103,17 @@
     </div>
   </div>
   <br /><br />
-  <button class="positive ui button" style="width: 20%">Test</button>
+  <h5>Please upload the file again to test</h5>
+  <button class="positive ui button" style="width: 20%; font-size: medium">
+    <label>
+      <input type="file" (change)="uploadFile($event)" />
+      Test <i class="upload icon"></i>
+    </label>
+  </button>
+  <h4>
+    Test result is <br />
+    <h4>{{ testResponse }}</h4>
+  </h4>
 </div>
 
 <div class="ui segment">

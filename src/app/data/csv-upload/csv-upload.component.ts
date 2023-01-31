@@ -13,7 +13,6 @@ export class CsvUploadComponent implements OnInit {
   // In case the header config is true the result will be: array of array objects
   header: boolean = false;
   isStackedON: boolean = true;
-  dataset: Array<any> = ['ahmad', 2, [5, 'shoaib'], 'ali', 'shoaib'];
   dataArray: any;
   constructor(private ngxCsvParser: NgxCsvParser) {}
 
